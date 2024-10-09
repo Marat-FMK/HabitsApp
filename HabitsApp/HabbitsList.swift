@@ -8,14 +8,41 @@
 import SwiftUI
 
 struct HabbitsList: View {
+    @State private var hobits = Hobits()
+    
+    @State private var showAddView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(hobits.list, id: \.self ) { hobit in
+                NavigationLink( "hobit - '\(hobit.name)' ") {
+                    AboutHobit(hobit: hobit, hobits: hobits)
+                }
+            }
+            
+            .toolbar {
+                ToolbarItemGroup( placement: .topBarTrailing) {
+                    Button(action: { hobits.list.removeAll() } ) {
+                        Text("remove")
+                    }
+                    
+                    Button(action: { showAddView.toggle() } ) {
+                        Text("+")
+                            .font(.title)
+                            .tint(.black)
+                    }
+                    .padding()
+                    .buttonStyle(.bordered)
+                }
+            }
+            .navigationTitle("Hobist List")
+            
+            
+            
         }
-        .padding()
+        .sheet(isPresented: $showAddView) {
+            AddHobit(hobits: hobits)
+        }
     }
 }
 
