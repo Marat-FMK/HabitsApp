@@ -61,6 +61,10 @@
 * Природа
 * Выбор нескольких категорий сразу
 
+###Скриншоты
+
+
+| ![preview](https://github.com/AleksPt/TicTacToe/blob/main/Demo/app1.png) |![preview](https://github.com/AleksPt/TicTacToe/blob/main/Demo/app2.png) | ![preview](https://github.com/AleksPt/TicTacToe/blob/main/Demo/app3.png)
 
 ### Другие возможности:
 * Дополняется... ;)
